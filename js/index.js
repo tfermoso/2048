@@ -78,6 +78,25 @@ function desplazarArriba() {
     }
 
 }
+function desplazarAbajo() {
+
+    let posU = "", posD = "";
+
+    for (let j = 0; j <= 3; j++) {
+        for (let index = 3; index >= 1; index--) {
+            posD = String(j) + index;
+            posU = String(j) + (index - 1);
+            if (tablero[posU] == tablero[posD] || tablero[posD] == 0) {
+                tablero[posD] += tablero[posU];
+                tablero[posU] = 0;
+            }
+        }
+        rellenarTablero()
+
+
+    }
+
+}
 
 document.addEventListener("keydown", function (event) {
     switch (event.key) {
@@ -91,9 +110,13 @@ document.addEventListener("keydown", function (event) {
 
             break;
         case "ArrowDown":
-            console.log("Tecla abajo presionada");
-            // Agrega aquí el código para el evento de tecla abajo
-            break;
+            for (let index = 0; index < 4; index++) {
+                desplazarAbajo();
+                rellenarTablero()    
+            }
+            nuevoNumero()
+            rellenarTablero()
+            break
         case "ArrowLeft":
             console.log("Tecla izquierda presionada");
             // Agrega aquí el código para el evento de tecla izquierda
