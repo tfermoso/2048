@@ -1,0 +1,22 @@
+header img{
+ width: 100px;   
+}
+header{
+    display: flex;
+    justify-content: space-around;
+}
+.celda{
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    display: table-cell;
+}
+.container{
+    width: 80%;
+    margin:0 auto;
+}
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
