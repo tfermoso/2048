@@ -52,3 +52,30 @@ function rellenarTablero() {
         }
     }
 }
+
+document.addEventListener("keydown", function(event) {
+    switch(event.key) {
+        case "ArrowUp":
+            console.log("Tecla arriba presionada");
+            // Agrega aquí el código para el evento de tecla arriba
+            break;
+        case "ArrowDown":
+            console.log("Tecla abajo presionada");
+            // Agrega aquí el código para el evento de tecla abajo
+            break;
+        case "ArrowLeft":
+            console.log("Tecla izquierda presionada");
+            // Agrega aquí el código para el evento de tecla izquierda
+            break;
+        case "ArrowRight":
+            console.log("Tecla derecha presionada");
+            // Agrega aquí el código para el evento de tecla derecha
+            break;
+    }
+});
+
+
+/************************* */
+nuevoNumero();
+nuevoNumero();
+rellenarTablero();
