@@ -17,3 +17,13 @@ var tablero={
     "32":0,
     "33":0,
 };
+
+function celdasVacias() {
+    let arrayCeldasVacias=[];
+    for (const key in tablero) {
+       if(tablero[key]==0){
+            arrayCeldasVacias.push(key);
+       }
+    }
+    return arrayCeldasVacias;
+}
