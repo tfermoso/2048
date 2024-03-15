@@ -54,18 +54,27 @@ function rellenarTablero() {
         }
     }
 }
+function comprobarColumna(col) {
+    //return tablero[String(col)+"0"]=="0"|| tablero[String(col)+"1"]==0 || tablero[String(col)+"2"]=="0" || tablero[String(col)+"0"]==tablero[String(col)+"1"] ||tablero[String(col)+"1"]==tablero[String(col)+"2"] || tablero[String(col)+"2"]==tablero[String(col)+"3"]
+}
 
 function desplazarArriba() {
+
     let posU = "", posD = "";
-    for (let j = 0; j <=3; j++) {
+
+    for (let j = 0; j <= 3; j++) {
         for (let index = 0; index <= 2; index++) {
             posU = String(j) + index;
             posD = String(j) + (index + 1);
             if (tablero[posU] == tablero[posD] || tablero[posU] == 0) {
+                seguir = true;
                 tablero[posU] += tablero[posD];
                 tablero[posD] = 0;
             }
         }
+        rellenarTablero()
+
+
     }
 
 }
@@ -73,8 +82,13 @@ function desplazarArriba() {
 document.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "ArrowUp":
-            desplazarArriba();
+            for (let index = 0; index < 4; index++) {
+                desplazarArriba();
+                rellenarTablero()    
+            }
+            nuevoNumero()
             rellenarTablero()
+
             break;
         case "ArrowDown":
             console.log("Tecla abajo presionada");
