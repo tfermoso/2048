@@ -1,63 +1,80 @@
 
-var tablero={
-    "00":0,
-    "01":0,
-    "02":0,
-    "03":0,
-    "10":0,
-    "11":0,
-    "12":0,
-    "13":0,
-    "20":0,
-    "21":0,
-    "22":0,
-    "23":0,
-    "30":0,
-    "31":0,
-    "32":0,
-    "33":0,
+var tablero = {
+    "00": 0,
+    "01": 0,
+    "02": 0,
+    "03": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0,
+    "13": 0,
+    "20": 0,
+    "21": 0,
+    "22": 0,
+    "23": 0,
+    "30": 0,
+    "31": 0,
+    "32": 0,
+    "33": 0,
 };
 
 function celdasVacias() {
-    let arrayCeldasVacias=[];
+    let arrayCeldasVacias = [];
     for (const key in tablero) {
-       if(tablero[key]==0){
+        if (tablero[key] == 0) {
             arrayCeldasVacias.push(key);
-       }
+        }
     }
     return arrayCeldasVacias;
 }
 
 function celdaAleatoria(celdas) {
-    let pos=Math.floor(Math.random()*celdasVacias().length);
+    let pos = Math.floor(Math.random() * celdasVacias().length);
     return celdas[pos];
 }
 
 function nuevoNumero() {
-    let celdasLibres=celdasVacias();
-    let nuevaPos=celdaAleatoria(celdasLibres);
-    tablero[nuevaPos]=valorAleatorio();
+    let celdasLibres = celdasVacias();
+    let nuevaPos = celdaAleatoria(celdasLibres);
+    tablero[nuevaPos] = valorAleatorio();
 
 }
 
 function valorAleatorio() {
     //operador ternario
-    return Math.random()<0.9?2:4;
+    return Math.random() < 0.9 ? 2 : 4;
 }
 
 function rellenarTablero() {
     for (const key in tablero) {
-        if(tablero[key]!=0){
-            document.getElementById(key).innerHTML=tablero[key];
+        if (tablero[key] != 0) {
+            document.getElementById(key).innerHTML = tablero[key];
+        } else {
+            document.getElementById(key).innerHTML = "";
         }
     }
 }
 
-document.addEventListener("keydown", function(event) {
-    switch(event.key) {
+function desplazarArriba() {
+    let posU = "", posD = "";
+    for (let j = 0; j <=3; j++) {
+        for (let index = 0; index <= 2; index++) {
+            posU = String(j) + index;
+            posD = String(j) + (index + 1);
+            if (tablero[posU] == tablero[posD] || tablero[posU] == 0) {
+                tablero[posU] += tablero[posD];
+                tablero[posD] = 0;
+            }
+        }
+    }
+
+}
+
+document.addEventListener("keydown", function (event) {
+    switch (event.key) {
         case "ArrowUp":
-            console.log("Tecla arriba presionada");
-            // Agrega aquí el código para el evento de tecla arriba
+            desplazarArriba();
+            rellenarTablero()
             break;
         case "ArrowDown":
             console.log("Tecla abajo presionada");
