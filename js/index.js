@@ -27,3 +27,20 @@ function celdasVacias() {
     }
     return arrayCeldasVacias;
 }
+
+function celdaAleatoria(celdas) {
+    let pos=Math.floor(Math.random()*celdasVacias().length);
+    return celdas[pos];
+}
+
+function nuevoNumero() {
+    let celdasLibres=celdasVacias();
+    let nuevaPos=celdaAleatoria(celdasLibres);
+    tablero[nuevaPos]=valorAleatorio();
+
+}
+
+function valorAleatorio() {
+    //operador ternario
+    return Math.random()<0.9?2:4;
+}
