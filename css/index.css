@@ -1,21 +1,30 @@
-header img{
- width: 100px;   
+header img {
+    width: 100px;
 }
-header{
+
+header {
     display: flex;
     justify-content: space-around;
 }
-.celda{
+
+.celda {
     width: 150px;
     height: 150px;
     border: 1px solid black;
     display: table-cell;
+    text-align: center;
+    /* Centra el contenido horizontalmente */
+    vertical-align: middle;
+    /* Centra el contenido verticalmente */
+    font-size: 20px
 }
-.container{
+
+.container {
     width: 80%;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.container{
+
+.container {
     display: flex;
     align-items: center;
     flex-direction: column;
