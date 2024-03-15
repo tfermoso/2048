@@ -44,3 +44,11 @@ function valorAleatorio() {
     //operador ternario
     return Math.random()<0.9?2:4;
 }
+
+function rellenarTablero() {
+    for (const key in tablero) {
+        if(tablero[key]!=0){
+            document.getElementById(key).innerHTML=tablero[key];
+        }
+    }
+}
